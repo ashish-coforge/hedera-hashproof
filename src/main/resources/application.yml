@@ -1,0 +1,30 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  config:
+     import: optional:file:.env[.properties]
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hedera_hashproof
+    username: postgres
+    password: password
+    hikari:
+      idle-timeout: 1000
+      maximum-pool-size: 10
+      minimum-idle: 5
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+hashproof:
+  operator-id: ${HEDERA_OPERATOR_ID}
+  operator-key: ${HEDERA_OPERATOR_KEY}
+  mirror-node-address: ${MIRROR_NODE_ADDRESS}
+  mirror-node-uri: ${MIRROR_NODE_URI}
+  mirror-node-api-version: ${MIRROR_NODE_API_VERSION}
+  environment: ${HEDERA_ENVIRONMENT}
+  hedera-topic-id: ${HEDERA_TOPIC_ID}
+server:
+   port: 8080
