@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper=false)
 public class HashProofException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
-	private String message;
-	private HttpStatus httpStatus;
+	private final String message;
+	private final HttpStatus httpStatus;
 
 }

@@ -10,6 +10,11 @@ import com.hedera.hashgraph.sdk.PrivateKey;
 import com.hedera.hashproof.constant.HashProofConstants;
 import com.hedera.hashproof.constant.HashProofNetworkEnum;
 
+/**
+ * 
+ * This class keeps Hedera Network related configurations.
+ *
+ */
 @Configuration
 @ConfigurationProperties(prefix = HashProofConstants.PREFIX)
 public class HashProofEnvConfiguration {

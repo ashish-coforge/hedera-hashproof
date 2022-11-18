@@ -10,7 +10,11 @@ import com.hedera.hashgraph.sdk.Client;
 import com.hedera.hashproof.constant.HashProofNetworkEnum;
 
 import lombok.extern.slf4j.Slf4j;
-
+/**
+ * 
+ *This class is responsible to configure one or more @Bean methods for HashProof
+ *
+ */
 @Slf4j
 @Configuration
 public class HashProofConfiguration {

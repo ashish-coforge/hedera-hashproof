@@ -1,13 +1,12 @@
 package com.hedera.hashproof.exception;
 
+import org.springframework.http.HttpStatus;
+
+import lombok.Data;
+
+@Data
 public class HashProofError {
 
-	int code;
-	String description;
-
-	public HashProofError(int code, String description) {
-		this.code = code;
-		this.description = description;
-	}
-
+	private final HttpStatus status;
+	private final String description;
 }
