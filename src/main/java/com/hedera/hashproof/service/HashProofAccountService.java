@@ -10,7 +10,7 @@ import com.hedera.hashproof.dto.HashProofAccountConfigResponse;
 import com.hedera.hashproof.exception.HashProofException;
 import com.hedera.hashproof.model.HashProofCustomerConfigData;
 import com.hedera.hashproof.repository.HashProofCustomerConfigRepository;
-import com.hedera.hashproof.service.util.HashProofHelper;
+import com.hedera.hashproof.util.HashProofHelper;
 
 import lombok.extern.slf4j.Slf4j;
 

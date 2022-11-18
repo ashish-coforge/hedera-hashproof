@@ -1,4 +1,4 @@
-package com.hedera.hashproof.service.util;
+package com.hedera.hashproof.util;
 
 import java.util.Random;
 

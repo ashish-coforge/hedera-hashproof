@@ -13,7 +13,7 @@ import com.hedera.hashproof.exception.HashProofError;
 import com.hedera.hashproof.exception.HashProofException;
 import com.hedera.hashproof.exception.HashProofMessage;
 import com.hedera.hashproof.service.HashProofAccountService;
-import com.hedera.hashproof.service.util.HashProofHelper;
+import com.hedera.hashproof.util.HashProofHelper;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
