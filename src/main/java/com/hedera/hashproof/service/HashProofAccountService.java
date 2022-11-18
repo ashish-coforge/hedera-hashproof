@@ -29,8 +29,10 @@ public class HashProofAccountService {
 	public HashProofAccountConfigResponse createAccount(String writeDate) throws HashProofException {
 		log.info("createAccount:call");
 		HashProofAccountConfigResponse hashProofAccountConfigResponse = null;
-		//Randomly generated 6 digit customer id.customer id generation is temporary in HashProof
-		//and will be replaced by Apigee generated customerId later on will be passed from Apigee API.
+		// Randomly generated 6 digit customer id.customer id generation is temporary in
+		// HashProof
+		// and will be replaced by Apigee generated customerId later on will be passed
+		// from Apigee API.
 		String customerId = HashProofHelper.generateCustomerId();
 		HashProofCustomerConfigData hashProofCustomerConfigData = new HashProofCustomerConfigData(customerId, writeDate,
 				customerId, new Timestamp(System.currentTimeMillis()));
@@ -64,6 +66,24 @@ public class HashProofAccountService {
 			log.error(e.getMessage());
 			throw new HashProofException(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
+	}
+
+	/**
+	 * 
+	 * @param customerId
+	 * @return
+	 * @throws HashProofException
+	 */
+	public int removeAccount(String customerId) throws HashProofException {
+		log.info("removeAccount:call");
+		int result;
+		try {
+			result = customerRepository.deleteByCustomerId(customerId);
+		} catch (RuntimeException e) {
+			log.error(e.getMessage());
+			throw new HashProofException(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		return result;
 	}
 
 }

@@ -13,4 +13,12 @@ public interface HashProofCustomerConfigRepository extends JpaRepository<HashPro
 	 * @return
 	 */
 	public HashProofCustomerConfigData findByCustomerId(String customerId);
+
+	/**
+	 * 
+	 * @param customerId
+	 * @return
+	 */
+	@Transactional
+	public int deleteByCustomerId(String customerId);
 }

@@ -50,7 +50,7 @@ public class HashProofAccountController {
 			@ApiResponse(code = 400, message = "Transaction fail.") })
 	public Response createAccount(@RequestParam(required = false) String writeData) throws Exception {
 		Response response = new Response();
-		log.info("createAccount:writeData"+writeData);
+		log.info("createAccount:writeData" + writeData);
 		try {
 			if (writeData == null || writeData.isBlank()) {
 				writeData = "Y";
@@ -101,4 +101,33 @@ public class HashProofAccountController {
 		return response;
 	}
 
+	/**
+	 * 
+	 * @param customerId
+	 * @return
+	 * @throws Exception
+	 */
+	@PostMapping("/account/remove")
+	@ApiOperation("Remove HashProof User Account")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Account removed successfully."),
+			@ApiResponse(code = 400, message = "Transaction fail.") })
+	public Response removeAccount(@RequestParam("customerId") String customerId) throws Exception {
+		Response response = new Response();
+		int result;
+		log.info("removeAccount,cstomerId==" + customerId);
+		try {
+			result = hashProofAccountService.removeAccount(customerId);
+			if (result == 1) {
+				response.setMessage(HashProofMessage.ACCOUNT_REMOVE_SUCCESS.getDescription());
+				response.setCode(HttpStatus.OK.value());
+			} else {
+				response.setMessage(HashProofMessage.ACCOUNT_NOT_FOUND.getDescription());
+				response.setCode(HttpStatus.NOT_FOUND.value());
+			}
+
+		} catch (HashProofException e) {
+			response = HashProofHelper.generateErrorResponse(e.getHttpStatus(), e.getMessage());
+		}
+		return response;
+	}
 }
